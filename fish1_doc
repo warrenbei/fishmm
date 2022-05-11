@@ -1,0 +1,35 @@
+><>++ documentation
+
+><^v	directions
+/\	mirrors
+!?	trampolines: ! skip next, ? pop top, skip next if nonzero
+0..9	numbers: push to stack
+'"	' read number until no more digits (same direction) then push
+	" read string, push all chars as ASCII, end at next "
+	Cannot get " using ASCII, must use numbers instead
++-*,%	operations: , is division since / is a mirror
+	stack |...xy pop x,y -> push x op y
+= 	|...xy pop x,y -> push 1 if x=y, 0 else
+)( 	greater, lesser (0 or 1)
+:	duplicate top of stack
+~	delete top of stack
+$	swap top two values of stack
+@	triple swap: |...xyz -> |...zxy
+r	reverse stack
+l	push stack length
+[	pop top of stack (n), build new stack, copy n elements over
+	make new register empty
+]	remove current stack, place all elements onto previous
+	current register deleted
+	|...012 |345 -> |...012345
+cn	pop and output as char (translate as ASCII) or number
+i	read char from input, push ASCII to stack, push -1 if no input left
+&	pop top value, move to register of the current stack, call again:
+	push register
+;	end of program
+space	no operation
+other	error
+
+Grid is bounded (rectangle), toroidal
+Error message: "something smells fishy..."
+https://tio.run/#fish
