@@ -124,6 +124,7 @@ LOG("\n");
         else if(c>='0'&&c<='9'){s.bk.pb(c-'0');}
         else if(c=='.'){s.bk.pb(32);}
         else if(c=='#'){s.bk.pb(48);}
+        else if(c=='t'){s.bk.pb(10);}
         else if(c>='A'&&c<='Z'){s.bk.pb(c);}
         else if(c=='+'){if(s.bk.size()<=1)return 2;
                         I y=s.bk.bk;s.bk.ppb;I x=s.bk.bk;
